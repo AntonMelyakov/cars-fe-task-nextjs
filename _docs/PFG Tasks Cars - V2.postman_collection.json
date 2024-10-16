@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "05fc7223-1abb-4ba8-92dc-f9665d77f03c",
+		"name": "PFG Tasks Cars - V2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25933882"
+	},
+	"item": [
+		{
+			"name": "Car Brand",
+			"item": [
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set('_admin_token', jsonData.data.login.jwtToken)",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetBrands {\n    carBrands {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							},
+							{
+								"key": "PFG-API-ERROR",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation EditBrands {\n    editCarBrand(data: {\n        id: 3,\n        name: \"test\"\n    }) {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteBrand {\n    deleteCarBrand(id: 32)\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateBrand {\n    createCarBrand(name: \"test32\") {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car Model",
+			"item": [
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set('_admin_token', jsonData.data.login.jwtToken)",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetModel {\n    carModels(brandId: 3) {\n        brand {\n            id\n            name\n        }\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation EditModel {\n    editCarModel(data: {\n        id: 3,\n        name: \"4353\"\n    }) {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteModel {\n    deleteCarModel(id: 1)\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateModel {\n    createCarModel(name: \"test32\", brandId: 3) {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car Modification",
+			"item": [
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetModification {\n    carModifications(modelId: 4) {\n        model {\n            brand {\n                id\n                name\n            }\n            id\n            name\n        }\n        id\n        name\n        coupe\n        horsePower\n        weight\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetModification {\n    allCarModifications {\n        model {\n            brand {\n                id\n                name\n            }\n            id\n            name\n        }\n        id\n        name\n        coupe\n        horsePower\n        weight\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation EditModificatio {\n    editCarModification(data: {\n        id: 3,\n        name: \"4353\",\n        horsePower: 566\n    }) {\n        id\n        name\n        coupe\n        horsePower\n        weight\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteModification {\n    deleteCarModification(id: 1)\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "PFG-API-SPEED",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateModification {\n    createCarModification(name: \"test\", modelId: 3) {\n        id\n        name\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{_graph_url}}",
+							"host": [
+								"{{_graph_url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

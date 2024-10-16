@@ -1,0 +1,10 @@
+fragment CarBrandData on CarBrand {
+  id
+  name
+}
+
+query GetBrands {
+  carBrands {
+    ...CarBrandData
+  }
+}

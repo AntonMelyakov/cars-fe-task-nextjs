@@ -1,0 +1,23 @@
+{
+  "name": "codegen",
+  "version": "1.0.0",
+  "description": "Generate Graphql Stuff",
+  "main": "index.js",
+  "scripts": {
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "get-graphql-schema": "^2.1.2",
+    "typescript": "5.0.2"
+  },
+  "dependencies": {
+    "graphql-request": "^6.1.0",
+    "prettier": "^3.0.3"
+  }
+}

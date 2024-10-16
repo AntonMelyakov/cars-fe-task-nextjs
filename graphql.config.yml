@@ -1,0 +1,8 @@
+schema: ./_schema.graphql
+extensions:
+  endpoints:
+    test-local:
+      url: http://localhost:9420/graphql
+      headers:
+        cookie: "XDEBUG_SESSION=PHPSTORM"
+      introspect: true

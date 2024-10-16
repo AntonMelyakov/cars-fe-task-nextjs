@@ -1,0 +1,98 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type CarBrand {
+  id: ID!
+  name: String!
+}
+
+type CarModel {
+  brand: CarBrand!
+  id: ID!
+  name: String!
+}
+
+type CarModification {
+  coupe: CarCoupe!
+  horsePower: Int!
+  id: ID!
+  model: CarModel!
+  name: String!
+  weight: Float!
+}
+
+type Mutation {
+  _health: Boolean
+  createCarBrand(name: String!): CarBrand!
+  createCarModel(brandId: ID!, name: String!): CarModel!
+  createCarModification(modelId: ID!, name: String!): CarModification!
+  deleteCarBrand(id: ID!): Boolean!
+  deleteCarModel(id: ID!): Boolean!
+  deleteCarModification(id: ID!): Boolean!
+  editCarBrand(data: CarBrandData!): CarBrand!
+  editCarModel(data: CarModelData!): CarModel!
+  editCarModification(data: CarModificationData!): CarModification!
+}
+
+type Query {
+  _health: Boolean
+  allCarModifications: [CarModification!]!
+  carBrands: [CarBrand!]!
+  carModels(brandId: ID!): [CarModel!]!
+  carModifications(modelId: ID!): [CarModification!]!
+}
+
+enum CarCoupe {
+  CONVERTIBLE
+  COUPE
+  HATCHBACK
+  SEDAN
+  SUV
+  TRUCK
+  VAN
+  WAGON
+}
+
+enum Constraint {
+  EMAIL
+  MAX
+  MIN
+  NUMERIC
+  ONE_OF
+  PASSWORD
+  REQUIRED
+}
+
+enum EntityFilterSort {
+  ASC
+  DESC
+}
+
+input CacheConfig {
+  customKey: String
+  extraKeys: [String!]
+  ttlMin: Int = -1
+  useCache: Boolean
+}
+
+input CarBrandData {
+  id: ID!
+  name: String!
+}
+
+input CarModelData {
+  id: ID!
+  name: String!
+}
+
+input CarModificationData {
+  coupe: CarCoupe
+  horsePower: Int
+  id: ID!
+  name: String
+  weight: Float
+}

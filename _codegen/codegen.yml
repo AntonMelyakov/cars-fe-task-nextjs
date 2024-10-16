@@ -1,0 +1,16 @@
+#=overwrite: true
+schema: 'https://task_fe_demo.pfgbulgaria.com/graphql'
+
+documents:
+  - '../src/**/*.gql'
+
+generates:
+  ../src/lib/_generated/graphql_sdk.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+
+hooks:
+  afterOneFileWrite:
+    - prettier --write
